@@ -625,7 +625,7 @@ footer { background:var(--dark); color:rgba(255,255,255,.82); text-align:center;
         </div>
         <div class="p-name">Afrianti</div>
         <div class="p-deg">&nbsp;</div>
-        <p class="p-plabel">Putri terakhir dari</p>
+        <p class="p-plabel">Putri bungsu dari</p>
         <p class="p-parents">Bapak Afendi &amp; Ibu Hamdiyah</p>
       </div>
     </div>
@@ -891,10 +891,10 @@ footer { background:var(--dark); color:rgba(255,255,255,.82); text-align:center;
         <div class="bank-ico" style="background:#FFF3E0;color:#E65100"><i class="fas fa-university"></i></div>
         <div class="bank-name">Bank BCA</div>
         <div class="bank-box">
-          <div class="bank-num" style="font-size:1.05rem;letter-spacing:1px">8411192564</div>
+          <div class="bank-num" style="font-size:1.05rem;letter-spacing:1px">5411192564</div>
           <div class="bank-holder">a.n. M. Ridho Ali Murtadho</div>
         </div>
-        <button class="btn-gold" onclick="copyNum('8411192564','BCA')"><i class="fas fa-copy"></i> Salin Nomor</button>
+        <button class="btn-gold" onclick="copyNum('5411192564','BCA')"><i class="fas fa-copy"></i> Salin Nomor</button>
       </div>
     </div>
     <p style="text-align:center;margin-top:3rem;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:1.1rem" class="rv">
@@ -1222,7 +1222,11 @@ function copyNum(txt, label) {
 /* ================================================================
    COUNTDOWN
 ================================================================ */
-const wDay = new Date(2026, 6, 11, 7, 0, 0); // 11 Juli 2026 jam 07:00
+// 11 Juli 2026 jam 07:00 WIB — konsisten di semua perangkat & timezone
+// Cara baca: new Date(tahun, bulan-1, tanggal, jam_WIB - 7, menit, detik)
+// 07:00 WIB = 00:00 UTC, makanya angkanya 0 (bukan 7)
+const JAM_WIB = 7; // ← ganti angka ini kalau mau ubah jam mulai acara
+const wDay = new Date(Date.UTC(2026, 6, 11, JAM_WIB - 7, 0, 0));
 function tick() {
   const diff = wDay - new Date();
   if (diff <= 0) {
